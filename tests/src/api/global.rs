@@ -86,6 +86,12 @@ fn get_options() {
 }
 
 #[oxi::test]
+fn get_option_info() {
+    api::set_option("number", true).unwrap();
+    assert!(api::get_option_info("number").is_ok());
+}
+
+#[oxi::test]
 fn set_get_del_current_line() {
     let res = api::set_current_line("foo");
     assert_eq!(Ok(()), res);
